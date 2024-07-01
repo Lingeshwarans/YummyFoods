@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="form1.css">
+    <script src="https://kit.fontawesome.com/6d5a329b38.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div class="reg-form">
+        <div id="i">
+
+            <i class="fa fa-user-circle"></i>
+        </div>
+        <h2>Register here</h2>
+        <form>
+            <div class="uname">
+                
+                <input type="text" name="uname" placeholder="username">
+                <div></div>
+                
+            </div>
+            <div class="email">
+                
+                <input type="email" name="mail" placeholder="email id">
+                <div></div>
+                
+            </div>
+            <div class="pword">
+                
+                <input type="password" name="password" placeholder="password">
+                <div></div>
+                
+            </div>
+            <div class="cpword">
+                
+                <input type="password" name="cpassword" placeholder="confirm password">
+                <div></div>
+                
+            </div>
+            
+            <div class="Register">
+                <input type="submit" name="register" value="Register">
+            </div>
+        </form>
+    </div>
+    <script>
+        let frm=document.querySelector('form');
+        frm.addEventListener('submit',(event)=>{
+            event.preventDefault();
+           checkUname();
+           checkEmail();
+           checkPassword();
+           checkCPword();
+        });
+        let checkUname=()=>{
+            let unm=document.querySelector('.uname input');
+            let ufed=document.querySelector('.uname div');
+            let rex=/^[a-zA-Z0-9]{4,10}$/;
+            if(rex.test(unm.value))
+            {
+                makeValid(unm,ufed);
+            }
+            else
+            {
+                makeInvalid(unm,ufed);
+            }
+
+
+        };
+        let checkEmail=()=>{
+            let unm=document.querySelector('.email input');
+            let ufed=document.querySelector('.email div');
+            let rex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+            if(rex.test(unm.value))
+            {
+                makeValid(unm,ufed);
+            }
+            else
+            {
+                makeInvalid(unm,ufed);
+            }
+
+
+        };
+        let checkPassword=()=>{
+            let unm=document.querySelector('.pword input');
+            let ufed=document.querySelector('.pword div');
+            let rex = /^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+            if(rex.test(unm.value))
+                {
+                    makeValid(unm,ufed);
+                }
+            else
+                {
+                    makeInvalid(unm,ufed);
+                }
+
+
+        };
+        let checkCPword=()=>{
+            let unm=document.querySelector('.cpword input');
+            let pword=document.querySelector('.pword input');
+            let ufed=document.querySelector('.cpword div');
+            let rex = /^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+            if(rex.test(unm.value) && unm.value==pword.value)
+                {
+                    makeValid(unm,ufed);
+                }
+            else
+                {
+                    makeInvalid(unm,ufed);
+                }
+
+
+        };
+        let makeValid=(unm,ufed)=>{
+            unm.classList.add('valid');
+            unm.classList.remove('invalid');
+            ufed.classList.add('success');
+            ufed.classList.remove('failure');
+            ufed.innerText='Looks Good';
+            
+        };
+        let makeInvalid=(unm,ufed)=>{
+            unm.classList.remove('valid');
+            unm.classList.add('invalid');
+            ufed.classList.remove('success');
+            ufed.classList.add('failure');
+            ufed.innerText='Please enter valid data';
+
+        };
+        document.querySelector('.uname input').addEventListener('keyup',()=>{
+            checkUname();
+        });
+        document.querySelector('.email input').addEventListener('keyup',()=>{
+            checkEmail();
+        });
+        document.querySelector('.pword input').addEventListener('keyup',()=>{
+            checkPassword();
+        });
+        document.querySelector('.cpword input').addEventListener('keyup',()=>{
+            checkCPword();
+        });
+
+    </script>
+</body>
+</html>

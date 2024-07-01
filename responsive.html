@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+   
+    <title>Document</title>
+    <style>
+        body{
+            background-color: gray;
+            color: white;
+
+        }
+        h1{
+            display: none;
+        }
+        @media ( max-width:500px)
+        {
+            body{
+                background-color: darkmagenta;
+            }
+            .mobile h1{
+                display: block;
+            }
+        }
+        @media (min-width:501px) and ( max-width:728px)
+        {
+            body{
+                background-color: darkred;
+            }
+            .tab h1{
+                display: block;
+            }
+        }
+        @media (min-width:729px) and ( max-width:1200px)
+        {
+            body{
+                background-color: darkkhaki;
+            }
+            .lap h1{
+                display: block;
+            }
+        }
+        @media (min-width:1201px)
+        {
+            body{
+                background-color: darkviolet;
+            }
+            .wide h1{
+                display: block;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="wide">
+        <h1>wide screen</h1>
+    </div>
+    <div class="lap">
+        <h1>laptop screen</h1>
+    </div>
+    <div class="tab">
+        <h1>tablet screen</h1>
+    </div>
+    <div class="mobile">
+        <h1>mobile screen</h1>
+    </div>
+</body>
+</html>

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+     *{
+        margin: 0px;
+        padding: 0px;
+        
+     }
+     #nav{
+      background: linear-gradient(45deg,darkred,red,black,red,darkred);
+      display: flex;
+      justify-content: space-between;
+      align-content: center;
+      position: relative;
+     }
+     #main-nav a{
+        text-decoration: none;
+        color: white;
+        padding: 20px;
+        font-size: 20px;
+     
+     }
+     #main-nav{
+      padding: 5px;
+     }
+    #nxt div{
+       background-color: navy;
+       height:3px;
+       width: 30px;
+       margin-bottom: 3px;
+    
+    }
+    #nxt{
+    padding: 5px;
+    cursor: pointer;
+    display: none;
+
+    }
+    @media (max-width:656px){
+        #nav{
+            flex-direction: column;
+        }
+        #nxt{
+            align-self: flex-end;
+            display: block;
+            
+            
+        }
+        #main-nav{
+            display: none;
+        }
+    #main-nav.active{
+        display: flex;
+        flex-direction: column;
+
+    }
+    }
+
+    </style>
+</head>
+<body>
+    <div id="nav">
+        <nav id="main-nav">
+            <a href="#">Home</a>
+            <a href="#">Product</a>
+            <a href="#">Service</a>
+            <a href="#">Contact</a>
+        </nav>
+        <nav id="nxt">
+            <div id="menu"></div>
+            <div id="menu"></div>
+            <div id="menu"></div>
+        </nav>
+    </div>
+   
+    <script>
+
+       let bgbar=document.querySelector('div #nxt');
+       bgbar.addEventListener('click',()=>{
+        let mnav=document.querySelector('div #main-nav');
+        mnav.classList.toggle('active');
+       });
+    </script>
+</body>
+</html>
